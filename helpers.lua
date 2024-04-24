@@ -4,19 +4,19 @@ local module = {}
 local ICON = wezterm.nerdfonts.dev_terminal
 local SOLID_LEFT_ARROW = wezterm.nerdfonts.pl_right_hard_divider
 local SOLID_RIGHT_ARROW = wezterm.nerdfonts.pl_left_hard_divider
-local LEFT_CHEVRON = wezterm.nerdfonts.cod_chevron_left
-local RIGHT_CHEVRON = wezterm.nerdfonts.cod_chevron_right
+--local LEFT_CHEVRON = wezterm.nerdfonts.cod_chevron_left
+--local RIGHT_CHEVRON = wezterm.nerdfonts.cod_chevron_right
 
 local MINIMIZE = wezterm.nerdfonts.cod_chrome_minimize
 local MAXIMIZE = wezterm.nerdfonts.cod_chrome_maximize
 local EXIT = wezterm.nerdfonts.cod_chrome_close
 
-local TRANSPARENT = 'rgba(0, 0, 0, 0)'
-local WHITE = 'rgb(255, 255, 255)'
+--local TRANSPARENT = 'rgba(0, 0, 0, 0)'
+--local WHITE = 'rgb(255, 255, 255)'
 
-local ROSE = 'rgba(235, 188, 186, 255)'
-local PINE = 'rgba(49, 116, 143, 255)'
-local IRIS = 'rgba(196, 167, 231, 255)'
+--local ROSE = 'rgba(235, 188, 186, 255)'
+--local PINE = 'rgba(49, 116, 143, 255)'
+--local IRIS = 'rgba(196, 167, 231, 255)'
 local LOVE = 'rgba(235, 111, 146, 255)'
 
 local BASE =  'rgba(25, 23, 36, 255)'
@@ -25,7 +25,6 @@ local TEXT = 'rgba(224, 222, 244, 255)'
 local HIGHLIGHT_HIGH = 'rgba(82, 79, 103, 255)'
 local HIGHLIGHT_MED = 'rgba(64, 61, 82, 255)'
 local HIGHLIGHT_LOW = 'rgba(33, 32, 46, 255)'
-
 
 --CLOCK
 wezterm.on(
@@ -183,7 +182,7 @@ function module.apply_to_config(config)
 			},
 		},
 	}
-    
+
     --INTEGRATED WINDOW BUTTONS STYLE
     config.tab_bar_style =
     {
