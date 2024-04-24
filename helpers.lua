@@ -12,10 +12,17 @@ local WHITE = 'rgb(255, 255, 255)'
 local LIGHT_GREY = 'rgb(100, 100, 100)'
 local LIGHTER_GREY = 'rgb(150, 150, 150)'
 
+local BASE =  'rgba(25, 23, 36, 255)'
+local OVERLAY = 'rgba(38, 35, 58, 255)'
 local ROSE = 'rgba(235, 188, 186, 255)'
 local PINE = 'rgba(49, 116, 143, 255)'
 local IRIS = 'rgba(196, 167, 231, 255)'
 local TEXT = 'rgba(224, 222, 244, 255)'
+
+local HIGHLIGHT_HIGH = 'rgba(82, 79, 103, 255)'
+local HIGHLIGHT_MED = 'rgba(64, 61, 82, 255)'
+local HIGHLIGHT_LOW = 'rgba(33, 32, 46, 255)'
+
 
 --CLOCK
 wezterm.on(
@@ -23,7 +30,7 @@ wezterm.on(
 	function(window, pane)
 		local date = wezterm.strftime '%a %b %-d %H:%M '
 		window:set_right_status(wezterm.format { { Text = wezterm.nerdfonts.fa_clock_o .. ' ' .. date }, })
-		window:set_left_status(wezterm.format { { Text = ICON } })
+		window:set_left_status(wezterm.format { { Text = " " .. ICON .. " " } })
 	end
 )
 
@@ -63,10 +70,10 @@ function module.apply_to_config(config)
 
 	--CONFIGURE WINDOW
 	config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
-	config.window_background_opacity = 0.2
+	config.window_background_opacity = 0.4
 	config.text_background_opacity = 1.0
-	config.integrated_title_button_style = "Gnome"
-	config.integrated_title_button_color = "rgba(255, 255, 255, 255)"
+	config.integrated_title_button_style = "Windows"
+	config.integrated_title_button_color = OVERLAY
 	config.window_padding =
 	{
   		left = '2cell',
@@ -82,19 +89,12 @@ function module.apply_to_config(config)
 
 	--SET COLOR SCHEME
     config.color_scheme = "rose-pine"
-	--config.color_scheme = "Afterglow (Gogh)"
-	--config.color_scheme = 'Afterglow'
-	--config.color_scheme = "AdventureTime"
-	--config.color_scheme = 'vimbones'
-	--config.color_scheme = 'Violet Dark'
-	--config.color_scheme = 'Vs Code Dark+ (Gogh)'
-	--config.color_scheme = 'Tomorrow (dark) (terminal.sexy)'
 
 	--TAB BAR SETTINGS
 	config.enable_tab_bar = true
 	config.use_fancy_tab_bar = false
 	config.show_tabs_in_tab_bar = true
-	config.show_tab_index_in_tab_bar = false
+	config.show_tab_index_in_tab_bar = true
 
 	config.tab_max_width = 32
 
@@ -102,11 +102,11 @@ function module.apply_to_config(config)
 	{
 		tab_bar =
 		{
-			background = TRANSPARENT,
+			background = OVERLAY,
 			active_tab =
 			{
-				bg_color = TRANSPARENT,
-				fg_color = WHITE,
+				bg_color = HIGHLIGHT_HIGH,
+				fg_color = TEXT,
 				intensity = 'Bold',
 				underline = 'None',
 				italic = false,
@@ -114,8 +114,8 @@ function module.apply_to_config(config)
 			},
 			inactive_tab =
 			{
-				bg_color = TRANSPARENT,
-				fg_color = LIGHT_GREY,
+				bg_color = HIGHLIGHT_LOW,
+				fg_color = TEXT,
 				intensity = 'Normal',
 				underline = 'None',
 				italic = false,
@@ -123,8 +123,8 @@ function module.apply_to_config(config)
 			},
 			inactive_tab_hover =
 			{
-				bg_color = TRANSPARENT,
-				fg_color = LIGHTER_GREY,
+				bg_color = HIGHLIGHT_MED,
+				fg_color = TEXT,
 				intensity = 'Normal',
 				underline = 'None',
 				italic = true,
@@ -132,8 +132,8 @@ function module.apply_to_config(config)
 			},
 			new_tab =
 			{
-				bg_color = TRANSPARENT,
-				fg_color = LIGHT_GREY,
+				bg_color = HIGHLIGHT_LOW,
+				fg_color = TEXT,
 				intensity = 'Normal',
 				underline = 'None',
 				italic = false,
@@ -141,8 +141,8 @@ function module.apply_to_config(config)
 			},
 			new_tab_hover =
 			{
-				bg_color = TRANSPARENT,
-				fg_color = LIGHTER_GREY,
+				bg_color = HIGHLIGHT_MED,
+				fg_color = TEXT,
 				intensity = 'Normal',
 				underline = 'None',
 				italic = true,
