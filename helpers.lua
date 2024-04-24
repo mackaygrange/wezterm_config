@@ -100,7 +100,7 @@ function module.apply_to_config(config)
 
 	--CONFIGURE WINDOW
 	config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
-	config.window_background_opacity = 0.2
+	config.window_background_opacity = 0.4
     --config.win32_system_backdrop = 'Acrylic'
     --config.win32_acrylic_accent_color = BASE
 	config.text_background_opacity = 1.0
